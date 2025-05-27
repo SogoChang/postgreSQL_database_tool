@@ -77,7 +77,7 @@
 
 ### 核心文件
 
-#### `gradio_ui.py`
+#### [`gradio_ui.py`](gradio_ui.py)
 主要的應用程式文件，包含：
 - **Gradio Web 介面**：提供多個功能頁籤的用戶介面
 - **數據導入功能**：`upload_json_from_folder()` - 批量導入 JSON 文件
@@ -87,30 +87,30 @@
 
 ### SQL 文件
 
-#### `create_procedure.sql`
+#### [`create_procedure.sql`](create_procedure.sql)
 定義存儲過程 `insert_multiple_json()`：
 - 接受 JSON 陣列作為輸入
 - 批量插入多筆 JSON 數據到 `json_data` 表
 - 包含錯誤處理和事務回滾機制
 
-#### `check_field.sql`
+#### [`check_field.sql`](check_field.sql)
 定義數據驗證函數 `validate_json_fields_before_insert()`：
 - 檢查必要的 SQL 欄位（`id`, `file_name`）
 - 驗證 JSON 結構中的必要欄位（`response_data`, `fitness`）
 - 在數據插入前進行完整性檢查
 
-#### `create_trigger.sql`
+#### [`create_trigger.sql`](create_trigger.sql)
 創建觸發器 `trg_check_fields_before_insert`：
 - 在每次插入 `json_data` 表之前自動執行驗證
 - 確保數據完整性和一致性
 
-#### `function_get_id.sql`
+#### [`function_get_id.sql`](function_get_id.sql)
 定義查詢函數 `get_pnl_by_id()`：
 - 根據指定 ID 獲取對應的 PnL 數據
 - 返回 JSONB 格式的損益數據
 - 用於 PnL 視覺化功能
 
-#### `function_condition.sql`
+#### [`function_condition.sql`](function_condition.sql)
 定義條件篩選函数 `get_ids_by_conditions()`：
 - 支援多個篩選條件：
   - 最低 Sharpe 比率
